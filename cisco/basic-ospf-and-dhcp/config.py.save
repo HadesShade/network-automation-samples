@@ -1,24 +1,22 @@
-#Python3 automation Script for EVE-NG emulated Cisco Network.
-#Basic OSPF routing + DHCP Service
-#See the topology in topology.jpg
-
 from netmiko import ConnectHandler, NetmikoTimeoutException, NetmikoAuthenticationException
 
-#Import configuration arrays
-import commands as conf
+# In pyhton3, use importlib to import another python file.
+import commands
+#Then, import the commands.py using importlib.import_module.
+#The .py extension should be removed
 
-#Bypass initial configuration prompt
-def bypass(prompt,conn):
+
+
+def bypass(prompt):
 	if "[yes/no]" in prompt or 'initial configuration' in prompt or 'please answer' in prompt:
 		conn.send_command_timing("no\n")
 		prompt = conn.find_prompt()
 		print ('Bypassing Initial Configuration' + prompt)
 
 
-#port.txt define all port numbers used for telnet connections to routers.
+
 with open('port.txt') as ports:
 	for p in ports:
-
 		p = p.strip()
 
 		rtr = {
@@ -36,38 +34,41 @@ with open('port.txt') as ports:
 		print("Connecting to 192.168.88.200:"+p)
 
 		prompt = conn.find_prompt()
-		bypass(prompt,conn)
 
 
 		if p == "32769":
+			bypass(prompt)
 			conn.enable('enable')
 			conn.config_mode('conf t')
-			glb = conn.send_config_set(conf.cfgR1)
+			glb = conn.send_config_set(cfgR1)
 			print(glb)
 			print(conn.send_command('write'))
 
 		elif p == "32770":
+			bypass(prompt)
 			conn.enable('enable')
 			conn.config_mode('conf t')
-			glb = conn.send_config_set(conf.cfgR2)
+			glb = conn.send_config_set(cfgR2)
 			print(glb)
 			print(conn.send_command('write'))
 
 		elif p == "32771":
+			bypass(prompt)
 			conn.enable('enable')
 			conn.config_mode('conf t')
-			glb = conn.send_config_set(conf.cfgR3)
+			glb = conn.send_config_set(cfgR3)
 			print(glb)
 			print(conn.send_command('write'))
 
 		else:
+			bypass(prompt)
 			conn.enable('enable')
 			conn.config_mode('conf t')
-			glb = conn.send_config_set(conf.cfgR4)
+			glb = conn.send_config_set(cfgR4)
 			print(glb)
 			print(conn.send_command('write'))
 
-		conn.disconnect()
+	conn.disconnect()
 
 
 

@@ -1,0 +1,40 @@
+cnfR1 = [
+	'hostname R1',
+	'int e0/0',
+	'duplex full',
+	'ip address 193.168.49.1 255.255.255.0',
+	'no sh',
+	'exit',
+	'int e0/1',
+	'duplex full',
+	'ip address 192.168.49.1 255.255.255.0',
+	'no sh',
+	'exit',
+	'ip dhcp excluded-address 192.168.49.1 192.168.49.10',
+	'ip dhcp pool LAN1',
+	'network 192.168.49.0 255.255.255.0',
+	'default-router 192.168.49.1',
+	'dns-server 193.168.49.10',
+	'domain-name lan1.com',
+	'exit',
+	'end'
+]
+
+cnfR2 = [
+	'hostname R2',
+	'int e0/0',
+	'duplex full',
+	'ip address 193.168.49.2 255.255.255.0',
+	'ip nat outside',
+	'no sh',
+	'exit',
+	'int e0/1',
+	'duplex full',
+	'ip nat inside',
+	'ip address 192.168.54.1 255.255.255.0',
+	'no sh',
+	'exit',
+	'ip route 0.0.0.0 0.0.0.0 193.168.49.1',
+	'ip nat inside source static 192.168.54.10 193.168.49.10 ',
+	'end'
+]
