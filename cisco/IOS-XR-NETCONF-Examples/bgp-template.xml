@@ -1,0 +1,32 @@
+<config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+<bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
+   <instance>
+    <instance-name>{{ INS_NAME }}</instance-name>
+    <instance-as>
+     <as>{{ INS_AS }}</as>
+     <four-byte-as>
+      <as>{{ FB_AS }}</as>
+      <bgp-running></bgp-running>
+      <default-vrf>
+       <global>
+        <global-afs>
+         <global-af>
+          <af-name>{{ AF_NAME }}</af-name>
+          <enable></enable>
+          <sourced-networks>
+           {{ NET_LIST }}
+          </sourced-networks>
+         </global-af>
+        </global-afs>
+       </global>
+       <bgp-entity>
+        <neighbors>
+         {{ NEIGH_LIST }}
+        </neighbors>
+       </bgp-entity>
+      </default-vrf>
+     </four-byte-as>
+    </instance-as>
+   </instance>
+  </bgp>
+</config>

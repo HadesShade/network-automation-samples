@@ -1,0 +1,15 @@
+<interface-configuration>
+        <active>act</active>
+        <description>{{ DESCRIPTION }}</description>
+        <interface-name>{{ IFNAME }}</interface-name>
+        {{ ISVIRTUAL }}
+        {{ ISSHUTDOWN }}
+        <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+            <addresses>
+                <primary>
+                    <address>{{ IPV4_ADDR }}</address>
+                    <netmask>{{ MASK }}</netmask>
+                </primary>
+            </addresses>
+        </ipv4-network>
+</interface-configuration>

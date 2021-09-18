@@ -1,0 +1,4 @@
+<sourced-network>
+    <network-addr>{{ NET_ADDR }}</network-addr>
+    <network-prefix>{{ NET_PREFIX }}</network-prefix>
+</sourced-network>

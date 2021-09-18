@@ -1,0 +1,7 @@
+<neighbor>
+    <neighbor-address>{{ NEIGH_ADDR }}</neighbor-address>
+    <remote-as>
+        <as-xx>{{ AS_XX }}</as-xx>
+        <as-yy>{{ AS_YY }}</as-yy>
+    </remote-as>
+</neighbor>
