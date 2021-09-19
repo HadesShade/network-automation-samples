@@ -5,10 +5,8 @@ def Connect(host, port, username, password, device_params):
     return manager.connect(host=host, port=port, username=username, password=password, device_params=device_params, hostkey_verify=False)
 
 def GetCapabilities(Connection):
-    cap = {}
     for c in Connection.server_capabilities:
-        cap += c
-    return cap
+        print (c)
 
 def getConfig(Connection, filter=""):
     return Connection.get_config(source="running") if filter == "" else Connection.get_config(source="running", filter=filter)
