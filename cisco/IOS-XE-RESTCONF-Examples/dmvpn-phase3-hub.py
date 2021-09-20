@@ -1,8 +1,8 @@
 import restconf_lib as lib
 
-ip = "172.16.10.20"
-url = "https://172.16.10.20/restconf/data/Cisco-IOS-XE-native:native/interface/Tunnel=1"
-auth = ("ro-adm","ro-adm")
+ip = "192.168.50.1"
+url = "https://192.168.50.1/restconf/data/Cisco-IOS-XE-native:native/interface/Tunnel=1"
+auth = ("hq-adm","hq-adm")
 
 data = {
   "Cisco-IOS-XE-native:Tunnel": {
@@ -14,32 +14,26 @@ data = {
           "mask": "255.255.255.224"
         }
       },
-      "Cisco-IOS-XE-nhrp:nhrp-v4": {
-        "nhrp": {
-          "map": {
-            "multicast": {
-              "dynamic": [
-                  None
-              ]
-            }
-          },
-          "authentication": "NHRP-KEY",
-          "network-id": 1,
-          "redirect": {}
-        }
-      },
-      "Cisco-IOS-XE-ospf:router-ospf": {
-        "ospf": {
-          "network": {
-            "point-to-multipoint": {}
+      "Cisco-IOS-XE-nhrp:nhrp": {
+        "authentication": "NHRP-KEY",
+        "map": {
+          "multicast": {
+            "dynamic": [
+              None
+            ]
           }
-        }
+        },
+        "network-id": 1,
+        "redirect": {}
+      },
+      "Cisco-IOS-XE-ospf:ospf": {
+          "network": "point-to-multipoint"
       }
     },
     "Cisco-IOS-XE-tunnel:tunnel": {
-      "source": "GigabitEthernet3",
+      "source": "GigabitEthernet1",
       "mode": {
-        "gre-config": {
+        "gre": {
           "multipoint": {}
         }
       }

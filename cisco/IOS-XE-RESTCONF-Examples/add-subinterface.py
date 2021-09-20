@@ -2,17 +2,17 @@ import restconf_lib as lib
 
 # Enable the parent interface first
 def enable_parent(auth):
-    parentURL = "https://172.16.10.20/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2/shutdown"
+    parentURL = "https://192.168.50.1/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2/shutdown"
     return lib.deleteConfig(parentURL, auth)
 
 def main():
-    ip = "172.16.10.20"
-    url = "https://172.16.10.20/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet"
+    ip = "192.168.50.1"
+    url = "https://192.168.50.1/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet"
     data = {
         "2.10" : {
             "Cisco-IOS-XE-native:GigabitEthernet" : {
                 "name" : "2.10",
-                "description" : "VLAN-10",
+                "description" : "CONTROLLER",
                 "encapsulation" : {
                     "dot1Q" : {
                         "vlan-id" : "10"
@@ -21,7 +21,7 @@ def main():
                 "ip" : {
                     "address" : {
                         "primary" : {
-                            "address" : "10.10.10.1",
+                            "address" : "192.168.10.1",
                             "mask" : "255.255.255.0"
                         }
                     }
@@ -32,7 +32,7 @@ def main():
         "2.20" : {
             "Cisco-IOS-XE-native:GigabitEthernet" : {
                 "name" : "2.20",
-                "description" : "VLAN-20",
+                "description" : "ERP",
                 "encapsulation" : {
                     "dot1Q" : {
                         "vlan-id" : "20"
@@ -41,7 +41,7 @@ def main():
                 "ip" : {
                     "address" : {
                         "primary" : {
-                            "address" : "10.20.20.1",
+                            "address" : "192.168.20.1",
                             "mask" : "255.255.255.0"
                         }
                     }
@@ -50,7 +50,7 @@ def main():
         }
     }
 
-    auth = ("ro-adm","ro-adm")
+    auth = ("hq-adm","hq-adm")
 
     print (enable_parent(auth))
 

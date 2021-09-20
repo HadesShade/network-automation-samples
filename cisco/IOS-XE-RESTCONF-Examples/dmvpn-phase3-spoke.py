@@ -1,10 +1,10 @@
 import restconf_lib as lib
 
-ip = "172.16.10.20"
-url = "https://172.16.10.20/restconf/data/Cisco-IOS-XE-native:native/interface/Tunnel=1"
-auth = ("ro-adm", "ro-adm")
+ip = "192.168.50.1"
+url = "https://192.168.50.1/restconf/data/Cisco-IOS-XE-native:native/interface/Tunnel=1"
+auth = ("hq-adm", "hq-adm")
 data = {
-  "Cisco-IOS-XE-native:Tunnel": {
+  "Cisco-IOS-XE-interface:Tunnel": {
     "name": 1,
     "ip": {
       "address": {
@@ -13,50 +13,44 @@ data = {
           "mask": "255.255.255.224"
         }
       },
-      "Cisco-IOS-XE-nhrp:nhrp-v4": {
-        "nhrp": {
-          "map": {
-            "dest-ipv4": [
-              {
-                "dest-ipv4": "10.0.0.1",
-                "nbma-ipv4": [
-                  {
-                    "nbma-ipv4": "200.100.50.6"
-                  }
-                ]
-              }
-            ],
-            "multicast": {
-              "nbma_ipv4": [
-                "200.100.50.6"
+      "Cisco-IOS-XE-nhrp:nhrp": {
+        "authentication": "NHRP-KEY",
+        "map": {
+          "dest-ipv4": [
+            {
+              "dest-ipv4": "10.0.0.1",
+              "nbma-ipv4": [
+                {
+                  "nbma-ipv4": "202.107.7.2"
+                }
               ]
             }
-          },
-          "nhs": {
-            "ipv4": [
-              {
-                "ipv4": "10.0.0.1"
-              }
+          ],
+          "multicast": {
+            "nbma_ipv4": [
+              "202.107.7.2"
             ]
-          },
-          "authentication": "NHRP-KEY",
-          "network-id": 1,
-          "shortcut": {}
-        }
+          }
+        },
+        "network-id": 1,
+        "nhs": {
+          "ipv4": [
+            {
+              "ipv4": "10.0.0.1"
+            }
+          ]
+        },
+        "shortcut": {}
       },
-      "Cisco-IOS-XE-ospf:router-ospf": {
-        "ospf": {
-          "network": {
-            "point-to-multipoint": {}
-          },
+      "Cisco-IOS-XE-ospf:ospf": {
+          "network": "point-to-multipoint",
           "priority": 0
-        }
       }
     },
     "Cisco-IOS-XE-tunnel:tunnel": {
       "source": "GigabitEthernet3",
       "mode": {
-        "gre-config": {
+        "gre": {
           "multipoint": {}
         }
       }

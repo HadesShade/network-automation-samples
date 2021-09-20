@@ -23,11 +23,11 @@ def ipv4Config(ip, auth, intNum, address, mask, description):
     return lib.setConfig(url, auth, data)
 
 def main() :
-     ip = "172.16.10.20"
-     auth = ("ro-adm","ro-adm")
+     ip = "192.168.50.1"
+     auth = ("hq-adm","hq-adm")
 
-     print (noShutdown(ip, auth, 3))
-     print (ipv4Config(ip, auth, 3, "192.168.10.1", "255.255.255.0", "TO-ISP"))
+     print (noShutdown(ip, auth, 1))
+     print (ipv4Config(ip, auth, 1, "202.107.7.2", "255.255.255.252", "TO-ISP"))
      print (lib.saveConfig(auth, ip))
 
 if __name__ == "__main__":

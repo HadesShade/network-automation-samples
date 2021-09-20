@@ -1,10 +1,10 @@
 import restconf_lib as lib
 
-auth = ("ro-adm","ro-adm")
-ip = "172.16.10.20"
-url = "https://172.16.10.20/restconf/data/Cisco-IOS-XE-native:native/hostname"
+auth = ("hq-adm","hq-adm")
+ip = "192.168.50.1"
+url = "https://192.168.50.1/restconf/data/Cisco-IOS-XE-native:native/hostname"
 data = {
-    "hostname" : "RO-MAIN"
+    "hostname" : "HQ-MAIN"
 }
 
 print (lib.setConfig(url, auth, data))
