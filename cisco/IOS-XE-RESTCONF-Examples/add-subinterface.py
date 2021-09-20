@@ -24,6 +24,12 @@ def main():
                             "address" : "192.168.10.1",
                             "mask" : "255.255.255.0"
                         }
+                    },
+
+                    "Cisco-IOS-XE-nat:nat": {
+                        "inside": [
+                            None
+                        ]
                     }
                 }
             }
@@ -56,7 +62,7 @@ def main():
 
     for i in data:
         newurl = url + f"={i}"
-        print (lib.createConfig(newurl, auth, data[i]))
+        print (lib.setConfig(newurl, auth, data[i]))
     
     print (lib.saveConfig(auth, ip))
 
