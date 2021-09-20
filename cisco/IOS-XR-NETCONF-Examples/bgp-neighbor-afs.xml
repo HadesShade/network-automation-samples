@@ -1,0 +1,6 @@
+<neighbor-af>
+    <af-name>{{ AF_NAME }}</af-name>
+    <activate></activate>
+    <route-policy-in>{{ POL_NAME_IN }}</route-policy-in>
+    <route-policy-out>{{ POL_NAME_OUT }}</route-policy-out>
+</neighbor-af>

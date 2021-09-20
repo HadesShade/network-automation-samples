@@ -14,17 +14,27 @@ network = {
     }
 }
 
+afs = {
+    "AF_NAME" : "ipv4-unicast",
+    "POL_NAME_IN" : "bgp-allow",
+    "POL_NAME_OUT" : "bgp-allow"
+}
+
+configAFS = lib.GenerateConfig(afs, "bgp-neighbor-afs.xml")
+
 neigbor = {
     "1" : {
         "NEIGH_ADDR" : "200.100.50.2",
         "AS_XX" : "0",
-        "AS_YY" : "65001"
+        "AS_YY" : "65001",
+        "NEIGH_AFS" : configAFS
     },
 
     "2" : {
         "NEIGH_ADDR" : "200.100.50.6",
         "AS_XX" : "0",
-        "AS_YY" : "65003"
+        "AS_YY" : "65003",
+        "NEIGH_AFS" : configAFS
     }
 }
 

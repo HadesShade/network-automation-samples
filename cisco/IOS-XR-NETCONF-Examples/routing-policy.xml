@@ -1,0 +1,13 @@
+<config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <routing-policy xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-cfg">
+    <route-policies>
+        <route-policy>
+        <route-policy-name>{{ POL_NAME }}</route-policy-name>
+        <rpl-route-policy>{{ RPL }}
+    {{ POL }}
+    end-policy
+    </rpl-route-policy>
+        </route-policy>
+    </route-policies>
+    </routing-policy>
+</config>
