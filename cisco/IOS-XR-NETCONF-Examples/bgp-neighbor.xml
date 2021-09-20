@@ -4,4 +4,7 @@
         <as-xx>{{ AS_XX }}</as-xx>
         <as-yy>{{ AS_YY }}</as-yy>
     </remote-as>
+    <neighbor-afs>
+        {{ NEIGH_AFS }}
+    </neighbor-afs>
 </neighbor>
