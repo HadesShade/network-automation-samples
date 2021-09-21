@@ -4,13 +4,28 @@ con = lib.Connect("172.16.10.1", 830, "isp-adm", "isp-adm", { "name" : "iosxr"})
 
 network = {
     "1" : {
-        "NET_ADDR" : "4.4.4.4",
+        "NET_ADDR" : "1.1.1.1",
         "NET_PREFIX" : "32"
     },
 
     "2" : {
         "NET_ADDR" : "172.16.10.0",
         "NET_PREFIX" : "24"
+    },
+
+    "3" : {
+        "NET_ADDR" : "202.107.7.0",
+        "NET_PREFIX" : "30"
+    },
+
+    "4" : {
+        "NET_ADDR" : "202.107.7.4",
+        "NET_PREFIX" : "30"
+    },
+
+    "5" : {
+        "NET_ADDR" : "202.107.7.8",
+        "NET_PREFIX" : "30"
     }
 }
 
@@ -24,16 +39,23 @@ configAFS = lib.GenerateConfig(afs, "bgp-neighbor-afs.xml")
 
 neigbor = {
     "1" : {
-        "NEIGH_ADDR" : "200.100.50.2",
+        "NEIGH_ADDR" : "202.107.7.2",
         "AS_XX" : "0",
-        "AS_YY" : "65001",
+        "AS_YY" : "65002",
         "NEIGH_AFS" : configAFS
     },
 
     "2" : {
-        "NEIGH_ADDR" : "200.100.50.6",
+        "NEIGH_ADDR" : "202.107.7.6",
         "AS_XX" : "0",
         "AS_YY" : "65003",
+        "NEIGH_AFS" : configAFS
+    },
+
+    "3" : {
+        "NEIGH_ADDR" : "202.107.7.10",
+        "AS_XX" : "0",
+        "AS_YY" : "65004",
         "NEIGH_AFS" : configAFS
     }
 }
@@ -49,7 +71,7 @@ for i in neigbor:
 bgp = {
     "INS_NAME" : "default",
     "INS_AS" : "0",
-    "FB_AS" : "65004",
+    "FB_AS" : "65001",
     "AF_NAME" : "ipv4-unicast",
     "NET_LIST" : configNet,
     "NEIGH_LIST" : configNeigh

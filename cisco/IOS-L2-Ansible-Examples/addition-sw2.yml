@@ -1,0 +1,32 @@
+---
+- name: Additional Configuration SW2
+  hosts: SW2
+  gather_facts: false
+
+  tasks:
+    - name: Spanning Tree RPVST+
+      ios_config:
+        authorize: yes
+        lines:
+          - spanning-tree mode rapid-pvst
+          - spanning-tree vlan 10 root secondary
+          - spanning-tree vlan 20 root primary
+          - interface ethernet0/0
+          - spanning-tree link-type point-to-point
+          - interface port-channel1
+          - spanning-tree link-type point-to-point
+          - exit
+      
+    - name: Access Port Configuration
+      ios_config:
+        authorize: yes
+        lines:
+          - interface ethernet1/0
+          - spanning-tree portfast edge
+          - interface ethernet0/3
+          - spanning-tree portfast edge
+          - exit
+    
+    - name: Save Configuration
+      ios_config:
+        save_when: modified

@@ -1,0 +1,19 @@
+---
+- name: Additional Configuration SW1
+  hosts: SW1
+  gather_facts: false
+
+  tasks:
+    - name: Spanning Tree RPVST+
+      ios_config:
+        authorize: yes
+        lines:
+          - spanning-tree mode rapid-pvst
+          - spanning-tree vlan 10 root primary
+          - spanning-tree vlan 50 root secondary
+          - interface range eth0/1-2
+          - spanning-tree link-type point-to-point
+    
+    - name: Save Configuration
+      ios_config:
+        save_when: modified

@@ -1,0 +1,18 @@
+---
+- name : Configure VTP Clients
+  hosts: [SW2, SW3]
+  gather_facts: false
+
+  tasks:
+    - name : VTP Clients V2 on {{ inventory_hostname }}
+      ios_config:
+        authorize: yes
+        lines:
+          - vtp version 2
+          - vtp mode client
+          - vtp domain company.org
+          - vtp password Passw0rd$
+        
+    - name: Save {{ inventory_hostname }} Configuration
+      ios_config:
+        save_when: modified

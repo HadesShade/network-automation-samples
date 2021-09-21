@@ -1,0 +1,13 @@
+---
+- name: Configure Hostnames
+  hosts: [SW1, SW2, SW3]
+  gather_facts: false
+
+  tasks:
+    - name: Configure Hostname {{ inventory_hostname }}
+      ios_system:
+        hostname: "{{ inventory_hostname }}"
+    
+    - name: Save Configuration
+      ios_config:
+        save_when: modified

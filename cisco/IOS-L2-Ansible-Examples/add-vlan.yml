@@ -1,0 +1,24 @@
+---
+  - name: Add VLAN on VTP Server Switch
+    hosts: SW1
+    gather_facts: false
+
+    tasks:
+      - name : Add Vlan on  SW1
+        ios_vlans:
+          config:
+            - name: CONTROLLER
+              vlan_id: 10
+              state: active
+            - name: ERP
+              vlan_id: 20
+              state: active
+            - name: NATIVE
+              vlan_id: 99
+              state: active
+          state: merged
+      
+      - name: Save Configuration
+        ios_config:
+          save_when: modified
+  

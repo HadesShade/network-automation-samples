@@ -1,7 +1,7 @@
 import netconf_library as lib
 
 hostname = {
-    "HOSTNAME" : "ISP4"
+    "HOSTNAME" : "ISP"
 }
 
 con = lib.Connect("172.16.10.1", 830, "isp-adm", "isp-adm", {"name" : "iosxr"})

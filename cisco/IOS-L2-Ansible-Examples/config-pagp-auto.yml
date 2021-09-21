@@ -1,0 +1,16 @@
+---
+- name : Configure PAGP Auto
+  hosts: SW2
+  gather_facts: false
+
+  tasks:
+    - name : PAGP auto {{ inventory_hostname }}
+      ios_linkagg:
+        group: 1
+        state: present
+        mode: auto
+        members: [Ethernet0/1, Ethernet0/2]
+        
+    - name: Save {{ inventory_hostname }} Configuration
+      ios_config:
+        save_when: modified

@@ -1,0 +1,43 @@
+---
+- name: Configure Trunks on SW3
+  hosts: SW3
+  gather_facts: false
+
+  tasks:
+
+    - name: Initiate Trunk and Access Mode
+      ios_config:
+        authorize: yes
+        lines:
+          - interface ethernet0/0
+          - switchport mode trunk
+          - interface port-channel1
+          - switchport mode trunk
+          - interface ethernet0/3
+          - switchport mode access
+          - switchport access vlan 20
+          - exit
+
+    - name: Configure Ports on {{ inventory_hostname }}
+      ios_l2_interfaces:
+        config:
+          - name: ethernet0/0
+            trunk:
+              encapsulation: dot1q
+              native_vlan: 99
+          
+          - name: port-channel1
+            trunk:
+              encapsulation: dot1q
+              native_vlan: 99
+
+          - name: ethernet0/3
+            access:
+              vlan: 20
+              
+        state: merged
+            
+    
+    - name: Save Configuration
+      ios_config:
+        save_when: modified
