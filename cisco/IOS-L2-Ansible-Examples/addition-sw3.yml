@@ -4,10 +4,13 @@
   gather_facts: false
 
   tasks:
-    - name: Spanning Tree RPVST+
+    - name: SNMP + Spanning Tree RPVST+
       ios_config:
         authorize: yes
         lines:
+          - snmp-server community COMPANY RO
+          - snmp-server host 192.168.10.10 version 2c COMPANY
+          - snmp-server enable traps
           - spanning-tree mode rapid-pvst
           - spanning-tree vlan 20 root secondary
           - spanning-tree vlan 50 root primary
