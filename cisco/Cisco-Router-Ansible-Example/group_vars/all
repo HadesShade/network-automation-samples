@@ -1,0 +1,11 @@
+---
+ansible_user: admin
+ansible_password: Passw0rd$
+ansible_network_os: ios
+ansible_connection: network_cli
+loopback_name: loopback1
+interface_name: GigabitEthernet2
+bgp_mask: 255.255.255.255
+
+
+

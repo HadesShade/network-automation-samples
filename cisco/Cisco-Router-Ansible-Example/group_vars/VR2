@@ -1,0 +1,13 @@
+---
+loopback_address: 2.2.2.2/32
+interface_address: 192.168.20.1/24
+bgp_as: 65002
+bgp_network: 2.2.2.2
+bgp_n1: 10.99.99.201
+bgp_nas1: 65001
+bgp_n2: 10.99.99.203
+bgp_nas2: 65003
+static_dest: ["192.168.10.0/24", "192.168.30.0/24"]
+
+
+

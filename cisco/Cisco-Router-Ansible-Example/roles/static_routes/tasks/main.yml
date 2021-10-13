@@ -1,0 +1,12 @@
+---
+  - import_tasks: route1.yml
+    when: network == "192.168.10.0/24"
+  - import_tasks: route2.yml
+    when: network == "192.168.20.0/24"
+  - import_tasks: route3.yml
+    when: network == "192.168.30.0/24"
+
+
+      
+
+  

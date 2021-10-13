@@ -1,0 +1,44 @@
+---
+  - name : Configs
+    hosts : all
+    gather_facts : false
+
+    tasks:
+      - name : Interfaces
+        ios_interface:
+          aggregate:
+            - name : "{{ loopback_name }}"
+              enabled : true
+            - name : "{{ interface_name }}"
+              enabled : true
+
+      - name : Addresses
+        ios_l3_interface:
+          aggregate:
+            - name : "{{ loopback_name }}"
+              ipv4 : "{{ loopback_address }}"
+            - name : "{{ interface_name }}"
+              ipv4 : "{{ interface_address }}"
+
+      - name : BGP
+        ios_config:
+          lines:
+            - neighbor {{ bgp_n1 }} remote-as {{ bgp_nas1 }}
+            - neighbor {{ bgp_n2 }} remote-as {{ bgp_nas2 }}
+            - network {{ bgp_network }} mask {{ bgp_mask }}
+          parents: router bgp {{ bgp_as }}
+
+      - include_role:
+          name: static_routes
+        vars:
+          network: "{{ static_dest[0] }}"
+
+      - include_role:
+          name: static_routes
+        vars:
+          network: "{{ static_dest[1] }}"
+ 
+      - name : Save Configuration
+        ios_config:
+          save_when: modified
+

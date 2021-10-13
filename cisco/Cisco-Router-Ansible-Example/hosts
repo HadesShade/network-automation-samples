@@ -1,0 +1,11 @@
+[VR1]
+vRouter-1 ansible_host=10.99.99.201
+
+[VR2]
+vRouter-2 ansible_host=10.99.99.202
+
+[VR3]
+vRouter-3 ansible_host=10.99.99.203
+
+
+

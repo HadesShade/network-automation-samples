@@ -1,0 +1,8 @@
+---
+  - name : Add 192.168.30.0/24 static route
+    ios_static_route:
+      prefix : 192.168.30.0
+      mask : 255.255.255.0
+      next_hop : 3.3.3.3
+     
+      
