@@ -1,0 +1,25 @@
+Group Variables Documentation
+
+File : all
+- ansible_user: username for connection authentication
+- ansible_password: password for connection authentication
+- ansible_network_os: The Device OS type
+- ansible_connection: Connection Type
+- loopback_name: The loopback interface that'll be created
+- interface_name: Interface that'll be configured
+- bgp_mask: BGP Network mask that'll be advertised
+
+
+File : VR1, VR2, and VR3
+- loopback_address: IPv4 for Loopback Interface
+- interface_address: IPv4 for Physical Interface
+- bgp_as: AS Number for BGP
+- bgp_network: Network that'll advertised through BGP
+- bgp_n1: Neighbor 1 of BGP
+- bgp_nas1: ASN of Neighbor 1's BGP
+- bgp_n2: Neighbor 2 of BGP
+- bgp_nas2: ASN of Neighbor 2's BGP
+- static_dest : List of destination network for static routes
+
+
+

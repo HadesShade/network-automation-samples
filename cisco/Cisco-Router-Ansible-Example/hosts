@@ -1,3 +1,9 @@
+#Host inventory for ansible
+#VR1 : For vRouter-1
+#VR2 : For vRouter-2
+#VR3 : For vRouter-3
+#The ansible_host variable is a host variable defining the IP Address/FQDN of the host
+
 [VR1]
 vRouter-1 ansible_host=10.99.99.201
 
