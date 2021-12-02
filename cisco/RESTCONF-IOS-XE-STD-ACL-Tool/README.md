@@ -12,7 +12,7 @@ So the interface name declared should be :
 Example usage of interface parameter:
 
 ./main.py --router 1.1.1.1 --apply-acl --acl DMZ --ingress --intterface GigabitEthernet=1
-./main.py --router 1.1.1.1 --disable-acl --acl DMZ --egress --intterface GigabitEthernet=1
+<br>./main.py --router 1.1.1.1 --disable-acl --acl DMZ --egress --intterface GigabitEthernet=1
 
 Above rules should be followed so this tool will work as intended.
 
