@@ -69,3 +69,5 @@ class TATopo(Topo):
 		self.addLink(s12,h12)
 
 topos = { 'tatopo': (lambda: TATopo() ) }
+
+# Run command : sudo mn --controller remote,ip=<SDN Address> --switch=ovs,protocols=OpenFlow13 --custom <path to this code> --topo tatopo
