@@ -70,4 +70,4 @@ class TATopo(Topo):
 
 topos = { 'tatopo': (lambda: TATopo() ) }
 
-# Run command : sudo mn --controller remote,ip=<SDN Address> --switch=ovs,protocols=OpenFlow13 --custom <path to this code> --topo tatopo
+# Run command : sudo mn --controller remote,ip=<SDN Address> --custom <path to this code> --topo tatopo
