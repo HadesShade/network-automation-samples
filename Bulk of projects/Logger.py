@@ -2,7 +2,7 @@ import logging
 
 def LogInfo(message):
 	try:
-		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
+		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 		logger = logging.getLogger()
 		logger.info(message)
 
@@ -11,7 +11,7 @@ def LogInfo(message):
 
 def LogDebug(message):
 	try:
-		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
+		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 		logger = logging.getLogger()
 		logger.debug(message)
 
@@ -20,7 +20,7 @@ def LogDebug(message):
 
 def LogWarning(message):
 	try:
-		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
+		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 		logger = logging.getLogger()
 		logger.warning(message)
 
@@ -29,7 +29,7 @@ def LogWarning(message):
 
 def LogError(message):
 	try:
-		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
+		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 		logger = logging.getLogger()
 		logger.error(message)
 
@@ -38,7 +38,7 @@ def LogError(message):
 
 def LogCritical(message):
 	try:
-		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
+		logging.basicConfig(filename='/var/log/rtrtr-lb.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s',level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 		logger = logging.getLogger()
 		logger.critical(message)
 
